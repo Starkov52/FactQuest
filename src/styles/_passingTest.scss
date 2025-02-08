@@ -1,0 +1,199 @@
+.maain {
+    width: 80%;
+    height: 100%;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    border-radius: 15px;
+}
+.passingTest {
+    width: 90%;
+    height: 100%;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    border-radius: 15px;
+
+    &__headerElement {
+        margin-top: 20px;
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        background: white;
+        width:81.5%;
+        height: 100%;
+        border-radius: 10px;
+        margin-bottom: 0px;
+        max-width: 84%;
+        word-wrap: break-word;
+        overflow-x: auto;
+        overflow-y: hidden;
+align-items: center;
+    }
+    &__headerText {
+        padding-top: 30px;
+        font-size: 20px;
+        justify-self: center;
+        align-self: center;
+        margin-top: 30px;
+        padding-bottom: 20px;
+    }
+    &__headerTextT {
+        padding-top: 30px;
+        font-size: 30px;
+        justify-self: center;
+        align-self: center;
+        padding-bottom: 20px;
+    }
+    &__content {
+    
+        border-radius: 10px;
+        width: 80%;
+        height: 70%;
+        justify-self: center;
+        align-self: center;
+        padding: 10px 10px 10px 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-right: 25px;
+   
+    }
+    &__itemInner {
+        display: flex;
+        flex-direction: column;
+        padding: 20px 20px 5px 5px;
+        gap:30px;
+        align-self: start;
+        width: 100%;
+        margin-top: 10px;
+        background-color: white;
+        border-radius: 10px;
+    }
+    &__itemTitle {
+        margin-left: 20px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+    &__itemInput {
+        width:80%;
+        height: 30px;
+        border: none;
+        border-radius: 5px;
+        border-bottom: 3px SOLID rgb(156, 153, 153);
+        margin-left: 20px;
+        margin-bottom: 10px;
+    }
+    &__itemRadio {
+        width: 22px;
+        height: 22px;
+   appearance: none;
+   background-color: rgb(255, 255, 255);
+   position: relative;
+   border: 2px solid blanchedalmond;
+   border-radius: 50%;
+    }
+    &__itemRadio:checked::after {
+        width: 22px;
+        height: 22px;
+        position: absolute;
+        left:-2px;
+        top:-2px;
+        background-color: red;
+        content: url('../images/free-icon-catholicism-104529.png');
+        border: 1px solid black;
+        border-radius: 50%;
+    }
+    &__itemCheckBox {
+        width: 22px;
+        height: 23px;
+        background-color:  rgb(255, 255, 255);
+        appearance: none;
+        position: relative;
+        border-radius: 2px;
+        border: 2px solid blanchedalmond;
+    }
+    &__itemCheckBox:checked::after{
+        width: 22px;
+        height: 22px;
+        background-color:  rgb(0, 0, 0);
+        appearance: none;
+        content: url('../images/free-icon-bloody-knife-17717593\ \(1\).png');
+        position: absolute;
+        top:-2px;
+        left:-2px;
+        border-radius: 2px;
+
+        border: 1px solid red;
+    }
+    &__sendBtn {
+        background-color: rgb(138, 89, 57);
+        color: white;
+        width: 15%;
+        height: 40px;
+        border-radius: 5px;
+        margin-top: 10px;
+        border: none;
+    }
+    &__itemInput:focus {
+        outline: none;
+        border-bottom: 3px dotted black;
+        
+    }
+    &__itemRadioContainer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+     
+  
+    }
+    &__itemRadioItem {
+        display: flex;
+        gap: 0px 20px;
+        margin-top: 5px;
+        margin-left: 20px;
+        padding-bottom: 10px;
+        align-items: center;
+
+    }
+    &__footer {
+        margin-top: 10px;
+        margin-bottom: 30px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color:    rgb(255, 0, 0);
+    }
+}
+.grade {
+    position: relative;
+    &__stars {
+        display:flex;
+        justify-self: center;
+        gap: 20px;
+    }
+    &__text {
+        color: white;
+    }
+    width: 25%;
+    height: 150px;
+    background-color:rgb(107, 106, 106);
+    border-radius: 10px;
+    position: absolute;
+    top: 35%;
+    left: 37%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px 0px;
+    &__closeIcon {
+        position: absolute;
+        top: 10px;
+        left: 90%;
+    }
+}

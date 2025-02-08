@@ -1,0 +1,187 @@
+.shopSection {
+    align-self: center;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin-top: 10px;
+    border-radius: 10px;
+    gap: 15px;
+    margin-bottom: 40px;
+    &__info {
+        width: 95%;
+        background-color: white;
+        border-radius: 10px;
+        margin-top: 10px;
+        display: flex;
+        padding: 20px 20px 20px 20px;
+    }
+    &__title {
+        font-size: 40px;
+    }
+    &__description {
+        font-size: 17px;
+       
+        margin-right: 80px;
+    }
+}
+.shop {
+    width: 98%;
+ background-color: white;
+ border-radius: 10px;
+
+
+    &__Theme {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    &__Title {
+      font-size: 17px;
+    }
+&__header {
+    display: flex;
+    gap: 75%;
+    margin-left: 45px;
+    padding: 9px 9px 9px 9px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+    &__FullThemes {
+       display: flex;
+       gap: 10px;
+    color: blueviolet;
+    }
+    &__FullThemes:hover {
+        display: flex;
+        gap: 5px;
+     color: rgb(113, 21, 199);
+     }
+
+    &__FullText {
+      
+    }
+
+    &__themesRow {
+        display: flex;
+        overflow-x: hidden;
+        gap: 80px;
+        padding: 15px 15px 15px 15px;
+        justify-content: center;
+    }
+
+    &__questionTheme {
+
+    }
+
+    &__buttonTheme {
+    
+    }
+
+    &__item {
+        width: 25%;
+       
+    }
+    
+
+    &__presentation {
+        background: url('../images/white-puzzles-blue-background-flat-lay.jpg') center / cover;
+        width: 100%;
+        height: 150px;
+        border-radius: 5px;
+        border: 2px solid gray;
+    }
+
+    &__info {
+   display: flex;
+   margin-top: 10px;
+   flex-direction: column;
+   gap: 5px;
+    }
+
+    &__priceTheme {
+       display: flex;
+    }
+
+    &__infoTheme {
+        
+    }
+
+    &__byTheme {
+      width: 100%;
+      height: 35px;
+      border-radius: 10px;
+      background:  #a73afd;
+      border: none;
+      color: white;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__byTheme:hover {
+        display: flex;
+        gap: 10px;
+     color: gray;
+     background-color: #8d4bc0;;
+
+     }
+}
+.openModal {
+    padding: 20px 20px 20px 20px;
+    border: 2px solid rgb(107, 89, 89);
+    position:fixed;
+    top: 8%;
+    left: 20%;
+    background-color: aliceblue;
+    width: 60%;
+    height: 850px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    &__header {
+        width: 50%;
+display: flex;
+
+align-items: center;
+justify-content: space-between;
+margin: 0 20px 20px 20px;
+    }
+    &__textInfo {
+        margin-left: -50%;
+        font-size: 20px;
+    }
+    &__row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 100px;
+        justify-content: center;
+        width: 95%;
+    }
+    &__close {
+        position: fixed;
+        top: 80px;
+        left: 79%;
+    }
+ }
+ .openModal::-webkit-scrollbar {
+    width: 5px;
+    background-color: aquamarine;
+ }
+ .openModal::-webkit-scrollbar-thumb {
+    width: 5px;
+    height: 10px;
+    background-color: rgb(41, 46, 44);
+ }
+ .openModal::-webkit-scrollbar-track {
+    width: 5px;
+    background-color: aquamarine;
+ }
+

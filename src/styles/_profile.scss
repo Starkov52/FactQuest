@@ -1,0 +1,91 @@
+.profile {
+    width: 80%;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   margin-top: 10px;
+    &__inner {
+   width: 95.5%;
+   display: flex;
+   justify-content: space-between;
+   margin-top: 10px;
+   background-color: white;
+   padding: 20px 20px 20px 20px;
+   border-radius: 10px;
+    }
+  
+    &__image {
+      width: 100px;
+      height: 100px;
+    }
+    &__title {
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+  
+    &__content {
+      
+    }
+  
+    &__login {
+      font-size: 20px;
+    }
+  
+    &__contentInfo {
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+    }
+  
+    &__contentInfoItem {
+        display: flex;
+        align-self: start;
+        margin-top: 8px;
+        font-size: 17px;
+        gap: 8px;
+    }
+  
+    &__contentInfoItemText {
+font-size: 16px;
+    }
+  
+    &__countCoins {
+      display: flex;
+      background-color: rgba(30, 0, 87, 0.541);
+      border-radius: 20px;
+      width:5%;
+      height: 30px;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      padding: 10px 10px 10px 5px
+    }
+  
+    &__countCoinsInfo {
+     color: whitesmoke;
+    }
+  
+    &__themes {
+     margin-top: 15px;
+     background-color: white;
+     width: 95.6%;
+     border-radius: 10px;
+     padding: 20px 20px 20px 20px;
+    }
+  
+    &__headers {
+      // Стили для заголовков тем
+    }
+    &__nameImgContainer {
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+    }
+    &__text {
+        font-size: 25px;
+    }
+  }
+  

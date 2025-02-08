@@ -1,0 +1,337 @@
+.alreadyTests {
+    display: flex;
+
+    flex-direction: column;
+justify-content: center;
+    width: 80%;
+    height: 100%;
+    align-self: center;
+
+    &__checkedTests {
+        background-color: white;
+      width: 100%;
+      display:flex;
+      flex-direction: column;
+      height: 100%;
+      justify-self: center;
+      margin: 10px 0px 20px 0px;
+      border-radius: 10px;
+      overflow: hidden;
+      align-self: center;
+    }
+    &__checkedTestsHeader {
+        width: 100%;
+        justify-self: center;
+        height: 20px;
+        display:flex;
+        justify-content: space-between;
+        background-color:rgb(76, 117, 163);
+        padding: 10px 0px 10px 0px;
+        overflow-x: hidden;
+
+    }
+    &__checkedTestsTitle {
+        margin-left: 10px;
+    }
+    &__checkedTestsDelete {
+        margin-right: 10px;
+    }
+    &__checkedTestsList {
+        display: flex;
+        width: 100%;
+        margin: 10px 10px 10px 10px;
+        max-width: 100%;
+        overflow-x: auto ;
+        gap: 20px;
+        align-self: center;
+    }
+    &__checkedTestsList::-webkit-scrollbar-track {
+        background-color: aquamarine;
+       
+    }
+    &__checkedTestsList::-webkit-scrollbar-thumb {
+        background-color: aquamarine;
+        width: 10%;
+        height: 10px;
+       
+    }
+    &__checkedTestItem {
+        width: 13%;
+        min-width: 13%;
+        height: 100px;
+      background-color: rgba(11, 33, 224, 0.301);
+        border-radius: 7.5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-left: 10px;
+    }
+    &__checkedTestIcon {}
+    &__checkedTestTitle {
+        padding-left: 7px;
+        padding-right: 3px;
+        align-self: center;
+    }
+    &__content {
+        background-color: white;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-self: center;
+        height: 100%;
+        border-radius: 10px;
+        padding-bottom: 30px;
+    }
+    &__header {
+        background-color: white;
+        width: 90%;
+        height: 100%;
+        display: flex;
+        align-self: center;
+        padding: 10px 5px 0px 5px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__headerInfo {
+        width: 10%;
+        display:flex;
+        height: 25px;
+        gap: 10px;
+   
+        padding: 5px 5px 5px 5px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    }
+    &__headerInfoText {
+        color:blueviolet;
+    }
+    &__headerInfoCount {}
+    &__headerCreateBtn {
+        width: 10%;
+        border-radius: 10px;
+        border: none;
+        background-color: blueviolet ;
+        color:white;
+        height: 35px;
+    }
+    &__headerCreateBtnText {}
+    &__headerSearchElement {
+        width: 80%;
+        display: flex;
+        align-items: center;
+        align-self: center;
+        justify-content: center;
+        
+    }
+    &__search {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%
+    }
+    &__background {
+width:54%;
+background-color:#e9e8e8;
+align-self: start;
+margin-left: 10.5%;
+border-radius: 10px;
+margin-top: 2px;
+    }
+    &__backgroundItem {
+        display:flex;
+        background-color:#e9e8e8;
+        align-items: center;
+        border-top: 1px solid white;
+        border-radius: 10px;
+        transition: background-color 0.45ss ease;
+    }
+    &__backgroundItem:hover {
+        background-color: #ccc;
+      
+    }
+    &__testTitle {
+        margin-left:15px;
+    }
+    &__headerSearchElementInput {
+        width: 74.5%;
+        height: 28px;
+        border-radius: 12px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border: 2px solid rgba(128, 128, 128, 0.575);
+        position: relative;
+        justify-self: center;
+        margin-left: 1px;
+     
+    };
+    &__headerSearchElementIcons {
+       
+    }
+    &__headerSearchElementIconsContainer {
+        width: 3%;
+        height: 30px;
+        border-radius: 12px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border: 2px solid rgba(128, 128, 128, 0.575);
+        background-color: rgb(182, 178, 178);
+        margin-right: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__headerSearchElementIconsContainer:hover {
+       
+        background-color: rgb(155, 150, 150);
+      
+    }
+    &__tests {
+        width: 100%;
+        background-color: white;
+        height: 100%;
+        border-top: 1px solid grey;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 15px;
+        padding-top: 15px;
+        
+        
+    }
+    &__test {
+        width: 80%;
+        height: 100px;
+        background-color: rgb(213, 202, 224);
+        display:flex;
+        border-bottom: 2px solid gray;
+        align-self: center;
+        padding: 5px 5px 5px 5px;
+        border-radius: 5px;
+        position: relative;
+        line-height: 10px;
+        
+    }
+    &__test::after {
+        content: '';
+        position: absolute;
+        height: 1px;
+        background-color: black;
+        top: 110%;
+        width: 100%;
+        left: 0px;
+        margin-right: 10px;
+      }
+    &__testIcon {
+        width: 80px;
+        height: 80px;
+        margin: 0px 40px 0px 15px;
+    }
+    &__testInfo {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 10px;
+        margin-left: 30px;
+    }
+    &__testTitle {}
+    &__testTheme {}
+    &__testAccesCount {}
+    &__testAccesState {
+      position: absolute;
+      top: 55%;
+      left: 95%;
+    }
+    &__testAccesStars{
+        margin-left: 10%;
+     
+    }
+    &__testBtnStart {
+        height: 40px;
+        width: 15%;
+        border: 3px solid rgb(112, 112, 243);
+        background-color: white;
+        display: flex;
+        flex-direction: row;
+        border-radius: 5px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+     margin-left: 38.5%;
+     margin-bottom: 5px;
+     align-self: end;
+    }
+    
+}
+.userTests {
+    display: flex;
+    flex-direction: column;
+justify-content: center;
+align-self: center;
+align-items: center;
+background-color:  white;
+width: 79%;
+border-radius: 10px;
+margin-top: 20px;
+&__myTests {
+   
+    padding: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+justify-content: center;
+align-self: center;
+width: 95.5%;
+gap: 5px;
+margin-bottom: 20px;
+}
+&__title {
+    align-self: center;
+    font-size: 30px;
+    padding: 10px 10px 10px 10px;
+margin-bottom: 20px;
+}
+}
+.selectElement {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    &__select { position: relative;
+        display: inline-block;
+        background-color: #3c99c4;
+        border-radius: 10px;
+        color: whitesmoke;}
+   
+    &__item {
+        appearance: none;
+        width: 50%;
+        padding: 10px;
+        font-size: 16px;
+        color: #333;
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 4s ease;
+
+        &:hover {
+            border-color: #888;
+        }
+
+        &:focus {
+            outline: none;
+            border-color: #555;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    &__item::placeholder {
+        color: #aaa;
+    }
+}

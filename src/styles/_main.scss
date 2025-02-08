@@ -1,0 +1,113 @@
+.main {
+    background-color: rgb(255, 255, 255);
+   width:80%;
+   min-height:10%;
+   align-self: center;
+   display:flex;
+   flex-direction: column;
+   border-radius: 10px;
+   margin-top: 15px;
+   padding-left: 20px;
+   margin-bottom: 20px;
+   justify-content: center;
+   &__titleImage {
+    width: 30%;
+    height: 30%;
+   }
+   &__info {
+    margin-bottom: 50px;
+   }
+   &__item {
+    font-size: 20px;
+    margin-bottom: 10px;
+   }
+   &__title {
+    font-size: 40px;
+    margin-bottom: 20px;
+
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    
+   }
+   &__addQuizz {
+    max-width: 250px;
+    background-color: #dacaca;
+    height: 50px;
+    display:flex;
+    align-items: center;
+    border-radius: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    gap: 5px;
+    align-self: end;
+    margin: 0 15px 15px 0;
+}
+&__addQuizz:hover {
+    background-color:rgb(206, 212, 211)
+}
+&__information {
+    display:flex;
+    padding-top: 10px;
+}
+&__userTests {
+    height: 70%;
+    width: 90%;
+    background-color: rgba(219, 207, 207, 0.658);
+  display: flex;
+  flex-direction: column;
+ margin-left: 4%;
+   padding-bottom: 50px;
+   border-radius: 10px;
+   margin-bottom: 20px;
+}
+&__testTitle {
+    margin-bottom: 20px;
+    font-size: 30px;
+    align-self: center;
+}
+&__tests {
+    display: flex;
+    width: 97%;
+    height: 70%;
+    background-color: rgb(88, 100, 96);
+   align-self: center;
+   gap: 3%;
+
+
+ 
+}
+&__test {
+    width: 20%;
+    height: 90%;
+    background-color: rgb(241, 193, 193);
+    color: white;
+    margin: 5px 5px 5px 5px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+}
+&__test:hover {
+    background-color: rgba(212, 151, 151, 0.329);
+}
+&__testsTitle {}
+&__testDescription {
+    padding-left: 10px;
+}
+&__testAuthor {
+    
+}
+&__testAuthorImage {
+    border-radius:50%;
+    width: 50px;
+    height: 50px;
+}
+&__testAuthorName {
+    padding-left: 8px;
+}
+&__testHard {}
+&__testHardItem {}
+}
