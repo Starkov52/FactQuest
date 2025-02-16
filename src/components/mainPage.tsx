@@ -3,7 +3,27 @@ import test from '../images/19197306.jpg'
 import { Router as BrowserRouter,Link,useNavigate  } from 'react-router-dom';
 import { MdOutlineAddBox } from "react-icons/md";
 import TaskSection from '../components/usersTests'
+import { BDFirebase, readyTest } from '../App';
 const MainSection = () => {
+    const [testsBD,setTestsBD] = React.useState<readyTest[]>([])
+    const getData = new BDFirebase('https://telegrambotfishcombat-default-rtdb.firebaseio.com/', 'usersTests/')
+    getData.getData(`${getData.path}usersTests.json`,"GET").then((response:any) => {
+        const array:readyTest[] = []
+        for(const [key,value] of Object.entries(response) ) {
+            const realValue = value as readyTest
+            array.unshift(realValue)
+        }
+        setTestsBD([
+            ...array
+           
+        ])
+    
+    }
+        )
+    
+        
+        
+  
     return (
 
             <div className='main'>
@@ -34,12 +54,13 @@ const MainSection = () => {
                 <div className='main__userTests'>
      <h1 className="main__testTitle">Проходи тесты других пользователей</h1>
      <div className="main__tests">
-        <TaskSection></TaskSection>
-        <TaskSection></TaskSection>
-        <TaskSection></TaskSection>
-        <TaskSection></TaskSection>
-        <TaskSection></TaskSection>
-       
+         {
+            testsBD.map((item:readyTest,index) => {
+                if(index <=4)  {
+        return <TaskSection  key={index} test={item}></TaskSection>
+                }
+    })
+         }
      </div>
                  
              </div> 

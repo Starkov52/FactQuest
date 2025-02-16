@@ -104,7 +104,7 @@ console.log(value)
           }
     } else {
     if(isMouse(event)) {
-       if(datas.name.length !== 0 && datas.password.length !== 0 && datas.auth ) {
+       if(datas.name.length > 3  && datas.password.length > 3 && datas.auth ) {
 
         const stateToSend:UserType = {
             name: datas.name,
@@ -124,9 +124,12 @@ console.log(value)
             isAutorization:true,
             viewTests: new Set(),
         }
-        setTimeout(() => { User.sendData(`${User.path}${User.users}.json`,'POST',stateToSend).then((response) => {console.log(response)})
-        navigate('/autorization')},555)
-       
+        setTimeout(() => {
+            User.sendData(`${User.path}${User.users}.json`,'POST',stateToSend).then((response) => console.log(response))
+            navigate('/autorization')
+           
+        },1555)
+      
        
        }
     } else  {

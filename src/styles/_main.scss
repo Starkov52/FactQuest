@@ -69,11 +69,11 @@
 &__tests {
     display: flex;
     width: 97%;
-    height: 70%;
+    height: 60%;
     background-color: rgb(88, 100, 96);
    align-self: center;
    gap: 3%;
-
+border-radius: 8px;
 
  
 }
@@ -104,6 +104,7 @@
     border-radius:50%;
     width: 50px;
     height: 50px;
+   margin-left: 30%;
 }
 &__testAuthorName {
     padding-left: 8px;

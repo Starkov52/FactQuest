@@ -1,4 +1,4 @@
-import React,{FC, SetStateAction, useState} from 'react'
+import React,{FC, SetStateAction, useState,useRef} from 'react'
 import { FaLongArrowAltRight } from "react-icons/fa";
 import ShopItem from './shopItem';
 import OpenModal from './openModalShop';
@@ -26,12 +26,23 @@ type ConfrimProps = {
 }
 const Shop = ({themeObj, setThemeObj, format, formatModal, setFormatModal,card}:ConfrimProps) => {
     const [active, setActive] = useState<boolean>(false)
-   
-    const handleActiveModalWindow = () => {
-        setActive(!active)
-        setFormatModal(format)
-    } 
-    console.log(themeObj, 'АААААААААААААААААААААААА' )
+   const modal = useRef<HTMLDivElement>(null)
+
+  const handleActiveModalWindow = () => {
+    if (modal.current) {
+      if (active) {
+        modal.current.style.transform = "translateY(900px)"; 
+        setTimeout(() => setActive(false), 2000); 
+      } else {
+       
+        setActive(true);
+        setFormatModal(format);
+        setTimeout(() => {
+          if (modal.current) modal.current.style.transform = "translateY(0)"; 
+        }, 50);
+      }
+    }
+  };
     return (
         <div className="shop">
             <div className="shop__Theme">
@@ -65,7 +76,7 @@ const Shop = ({themeObj, setThemeObj, format, formatModal, setFormatModal,card}:
                    }
 
                 </div>
-                <OpenModal card={card} format={format} themeObj={themeObj }active={active} setActive={setActive} handleChangeActiveModalWindow={handleActiveModalWindow}></OpenModal>
+                <OpenModal ref={modal}card={card} format={format} themeObj={themeObj }active={active} setActive={setActive} handleChangeActiveModalWindow={handleActiveModalWindow}></OpenModal>
             </div>
             <div className="shop__questionTheme"></div>
             <div className="shop__buttonTheme"></div>

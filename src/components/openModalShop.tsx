@@ -1,4 +1,4 @@
-import React, { SetStateAction } from 'react'
+import React, { SetStateAction,forwardRef } from 'react'
 import { IoIosClose } from "react-icons/io";
 import ShopItem from './shopItem';
 import { ShopItemProps } from './shopItem';
@@ -9,12 +9,13 @@ setActive:  React.Dispatch<SetStateAction<boolean>>,
 handleChangeActiveModalWindow: () => any;
 themeObj: Theme,
 format: string,
-card: string
+card: string,
+ref: HTMLDivElement
 }
-function openModal({themeObj,active, setActive,handleChangeActiveModalWindow, format, card}:Active) {
+const openModal =  forwardRef<HTMLDivElement,Active>(({themeObj,active, setActive,handleChangeActiveModalWindow, format, card},ref) =>{
     
     return (
-        <div  style={{
+        <div ref={ref} style={{
             display: active ? 'flex' : 'none'
         }}className="openModal">
             <div className="openModal__header">
@@ -44,5 +45,5 @@ function openModal({themeObj,active, setActive,handleChangeActiveModalWindow, fo
             </div>
         </div>
     )
-}
+})
 export default openModal

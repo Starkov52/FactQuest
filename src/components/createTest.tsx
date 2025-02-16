@@ -20,8 +20,9 @@ import { BDFirebase } from '../App'
 import ChoiseTheme from './choiseTheme'
 import { GradientItem } from './shopSection'
 export type Format = 'title' | 'description';
-export type ConfrimProps = { formTextH:Text, choiseFormat?:string, state:ImportTypeContext['state']} & SetFunction
-const CreateTest = ({formTextH, setFormText, choiseFormat, }:ConfrimProps ) => {
+export type ConfrimProps = { choiseFormat?:string, state:ImportTypeContext['state']} 
+const CreateTest = ({choiseFormat, }:ConfrimProps ) => {
+    const context = useContext<ImportTypeContext | null>(UserData)
     const [countQuestion, setCountQuestion] = useState<readyTest>([
         [], // tests 
         0,  // grade
@@ -34,11 +35,36 @@ const CreateTest = ({formTextH, setFormText, choiseFormat, }:ConfrimProps ) => {
         },
         Math.random().toString(36).substring(2,9),
         new Date(),
+          [],
+          context?.state.name!
       ]);
 const [headersValue, setHeadersValue] = useState<Pick<Text,'header'>>({
     header: {title:{value:'Заголовок теста', formated: 'none'}, description:{value:'Описание теста...', formated: 'none'}}
     
 })
+
+const [formTextH, setFormText] = useState<Text>({
+    header: {
+      title: {
+        value:'Заголовок', 
+        formated:'none',
+      } ,
+      description:{
+        value: 'Описание',
+        formated: 'none'
+      } ,
+    },
+    value: 'Введите значение',
+    formText: null,
+    questionForm: AnswerForm.text,
+    necessarily: 'disabled',
+    question: ["Добавить вариант"],
+    isActive:true,
+    key: 0,
+    index:0,
+    id: '',
+    answer: []
+});
 const [isThemeActive, setIsThemeActive] = useState<boolean>(false)
 const inputValueT = useRef<HTMLInputElement >(null)
 const inputValueR = useRef<HTMLInputElement >(null)
@@ -59,7 +85,6 @@ const handleChangeInputHeader = (event:ChangeEvent<HTMLInputElement>) => {
         }
     }))
 }
-const context = useContext<ImportTypeContext | null>(UserData)
 const handleAddTest = () => {
     if(context) {
         class SendTest extends BDFirebase {
@@ -86,7 +111,9 @@ const handleAddTest = () => {
         },
 
         Math.random().toString(36).substring(2,9),
-        new Date()])
+        new Date(),
+        [],
+        context?.state.name!])
    
         }
         setHeadersValue({header: {title:{value:'Заголовок теста', formated: 'none'}, description:{value:'Описание теста...', formated: 'none'}}})
@@ -157,20 +184,6 @@ useEffect(() => {
     }
 },[countQuestion[4], countQuestion[0]])
 
-/*
-useEffect(() => {setCountQuestion([
-    {
-    value: 'Введите значение',
-    formText: null,
-    questionForm: AnswerForm.text,
-    necessarily: 'disabled',
-    question: ["Добавить вариант"],
-    isActive:false
-    }
-])
-setInterval(() => {console.log(countQuestion)},3000)
-},[])
-*/
 
 
 const handleAddQuestion = () => {
@@ -186,13 +199,13 @@ const handleAddQuestion = () => {
 
        id: handleRandomId(),
        answer: '',
-       trueAnswer: ['3'],
+       trueAnswer: [],
 
     };
     setCountQuestion(prev => {
         const updated = [...prev[0], newQuestion];
         console.log('After adding:', updated);
-        return [updated, prev[1], prev[2], prev[3],prev[4],prev[5],prev[6]];
+        return [updated, prev[1], prev[2], prev[3],prev[4],prev[5],prev[6],prev[7],prev[8]];
     });
 };
 useEffect(() => {
@@ -200,9 +213,10 @@ useEffect(() => {
 },[countQuestion])
 const Delete = () => {
     setCountQuestion((prev) => {
+    
         const newQuestions:any = prev[0].slice(0,-1)
        
-        return [newQuestions ,prev[1], prev[2],prev[3],prev[4], prev[5],prev[6]];
+        return [newQuestions ,prev[1], prev[2],prev[3],prev[4], prev[5],prev[6],prev[7],prev[8]];
     })
 }
 useEffect(() => {
@@ -231,19 +245,29 @@ const newHeader:Text = {
 }
 
     setCountQuestion(prev => {
-        const updated = [ newHeader];
+        const updated = [newHeader];
         console.log('After adding:', updated);
-        return [prev[0], prev[1], prev[2], updated, prev[4],prev[5],prev[6]];
+        return [prev[0], prev[1], prev[2], updated, prev[4],prev[5],prev[6],prev[7],prev[8]];
     })
 },[headersValue])
 
     return (
         <div   datatype="main" className="create">
             <div ref={headerElement} className="create__headerElement">
-                <p className="create__headerTextT">{`${headersValue.header.title.value}`}</p>
+                <p 
+                style={{
+                    fontStyle:  formTextH.header.title.formated === FormatedText.italic ? 'italic' : '',
+                    fontWeight: formTextH.header.title.formated === FormatedText.fat ? '700' : '' ,
+                    textDecoration: formTextH.header.title.formated === FormatedText.underlined ?  'underline' : ''
+               }}
+                className="create__headerTextT">{`${headersValue.header.title.value}`}</p>
                 <input ref={inputValueT} name='title' onChange={handleChangeInputHeader} className="create__headerTitle" value={headersValue.header.title.value}></input>
                 <FormatedLetters format='title' handleClickFormated={handleClickFormatedTitle}></FormatedLetters>
-                <p className="create__headerText">{`${headersValue.header.description.value.toLowerCase()}`}</p>
+                <p style={{
+                     fontStyle:  formTextH.header.description.formated === FormatedText.italic ? 'italic' : '',
+                     fontWeight: formTextH.header.description.formated === FormatedText.fat ? '700' : '' ,
+                     textDecoration: formTextH.header.description.formated === FormatedText.underlined ?  'underline' : ''
+                }} className="create__headerText">{`${headersValue.header.description.value.toLowerCase()}`}</p>
                 <input ref={inputValueR}name='description' onChange={handleChangeInputHeader} className="create__headerDescription"  value={headersValue.header.description.value}></input>
                 <FormatedLetters format='description' handleClickFormated={handleClickFormatedTitle}></FormatedLetters>
             </div>

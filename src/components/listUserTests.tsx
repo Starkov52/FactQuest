@@ -45,6 +45,7 @@ class SearchGetData extends BDFirebase {
     const [testsSearch,setTestsSearch] = useState<readyTest[]>(tests)
     const [showBackground,setShowBackground] = useState<boolean>(true)
     const [viewTests,setViewTests] = useState<Set<string> | Set<unknown>>(view ?? new Set())
+    const [loading,setLoading] = useState<boolean>(true)
     const [searchValue,setSearchValue] = useState<searchState>({
         input: '',
         flag: searchFlags.dateUp
@@ -110,8 +111,12 @@ const valueTest = value as readyTest
 testsArray.push(valueTest)
 }
 setTests(testsArray)
+        }).then(() => {
+            setLoading(false)
         })
+        
     },[])
+   
     useEffect(() => {
         HandleClickBtn()
     },[tests])
@@ -152,8 +157,8 @@ return (
             <BackgroundSearch show={showBackground}handleClickBackground={handleClickBackground} background={background}></BackgroundSearch>
         </div>
         <div className="alreadyTests__tests">
-      {
-        testsSearch.map((item:any,index:number ) => {
+      { 
+       loading ? <div className="alreadyTests__loading"></div>: testsSearch.map((item:any,index:number ) => {
             return (
                 <TestItem setViewTests={setViewTests} test={item} key={index}></TestItem>
             )

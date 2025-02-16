@@ -156,6 +156,19 @@ margin-top: 2px;
     &__testTitle {
         margin-left:15px;
     }
+    &__loading {
+        width: 30px;
+  height: 30px;
+  background: rgb(255, 255, 255);
+  border-radius: 50%;
+  border: 10px solid blueviolet;
+  border-top: 10px solid rgb(0, 0, 0);
+
+  transform: rotate(0deg);
+  animation: Loading 1s linear  infinite;
+  margin-left: 50%;
+
+    }
     &__headerSearchElementInput {
         width: 74.5%;
         height: 28px;
@@ -166,10 +179,10 @@ margin-top: 2px;
         position: relative;
         justify-self: center;
         margin-left: 1px;
-     
+        
     };
     &__headerSearchElementIcons {
-       
+        
     }
     &__headerSearchElementIconsContainer {
         width: 3%;
@@ -185,9 +198,9 @@ margin-top: 2px;
         align-items: center;
     }
     &__headerSearchElementIconsContainer:hover {
-       
+        
         background-color: rgb(155, 150, 150);
-      
+        
     }
     &__tests {
         width: 100%;
@@ -213,8 +226,10 @@ margin-top: 2px;
         align-self: center;
         padding: 5px 5px 5px 5px;
         border-radius: 5px;
-        position: relative;
+   
         line-height: 10px;
+        gap: 20px;
+        position: relative;
         
     }
     &__test::after {
@@ -226,7 +241,7 @@ margin-top: 2px;
         width: 100%;
         left: 0px;
         margin-right: 10px;
-      }
+    }
     &__testIcon {
         width: 80px;
         height: 80px;
@@ -237,19 +252,23 @@ margin-top: 2px;
         flex-direction: column;
         gap: 15px;
         margin-top: 10px;
-        margin-left: 30px;
+        margin-left: 15px;
+        align-items: start;
+        margin-right: 40px;
     }
-    &__testTitle {}
+    &__testTitle {
+       
+    }
     &__testTheme {}
     &__testAccesCount {}
     &__testAccesState {
-      position: absolute;
-      top: 55%;
-      left: 95%;
+     
     }
     &__testAccesStars{
-        margin-left: 10%;
-     
+      top: 10px;
+      position: absolute;
+      left: 43%;
+        
     }
     &__testBtnStart {
         height: 40px;
@@ -262,39 +281,40 @@ margin-top: 2px;
         justify-content: center;
         align-items: center;
         gap: 10px;
-     margin-left: 38.5%;
+ position:absolute;
      margin-bottom: 5px;
      align-self: end;
+     left: 82%;
     }
     
 }
 .userTests {
     display: flex;
     flex-direction: column;
-justify-content: center;
-align-self: center;
-align-items: center;
-background-color:  white;
-width: 79%;
-border-radius: 10px;
-margin-top: 20px;
-&__myTests {
-   
-    padding: 10px 10px 10px 10px;
-    display: flex;
-    flex-direction: column;
-justify-content: center;
-align-self: center;
-width: 95.5%;
-gap: 5px;
-margin-bottom: 20px;
-}
-&__title {
+    justify-content: center;
     align-self: center;
-    font-size: 30px;
-    padding: 10px 10px 10px 10px;
-margin-bottom: 20px;
-}
+    align-items: center;
+    background-color:  white;
+    width: 79%;
+    border-radius: 10px;
+    margin-top: 20px;
+    &__myTests {
+        
+        padding: 10px 10px 10px 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-self: center;
+        width: 95.5%;
+        gap: 5px;
+        margin-bottom: 20px;
+    }
+    &__title {
+        align-self: center;
+        font-size: 30px;
+        padding: 10px 10px 10px 10px;
+        margin-bottom: 20px;
+    }
 }
 .selectElement {
     width: 30%;
@@ -307,31 +327,40 @@ margin-bottom: 20px;
         background-color: #3c99c4;
         border-radius: 10px;
         color: whitesmoke;}
-   
-    &__item {
-        appearance: none;
-        width: 50%;
-        padding: 10px;
-        font-size: 16px;
-        color: #333;
-        background-color: #ffffff;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: all 4s ease;
-
-        &:hover {
-            border-color: #888;
+        
+        &__item {
+            appearance: none;
+            width: 50%;
+            padding: 10px;
+            font-size: 16px;
+            color: #333;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 4s ease;
+            
+            &:hover {
+                border-color: #888;
+            }
+            
+            &:focus {
+                outline: none;
+                border-color: #555;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            }
         }
-
-        &:focus {
-            outline: none;
-            border-color: #555;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        
+        &__item::placeholder {
+            color: #aaa;
         }
     }
-
-    &__item::placeholder {
-        color: #aaa;
+    
+    @keyframes Loading {
+        0% {
+            transform: rotate(0deg)
+        }
+        100% {
+            transform: rotate(360deg)
+        }
     }
-}

@@ -23,14 +23,16 @@ function UserTests() {
         <div className="userTests">
             <h1 className="userTests__title">
                 Мои тесты
-            </h1>
-            <Select setSearchValue={setSearchValue} searchValue={searchValue} setTestsSearch={setTestsSearch} testsSearch={testsSearch} ></Select>
+            </h1>{
+            state?.state.tests ? <Select setSearchValue={setSearchValue} searchValue={searchValue} setTestsSearch={setTestsSearch} testsSearch={testsSearch} ></Select> : null
+}
             <div className='userTests__myTests'>
-           {state?.state.tests.map((item: any, index:number) => {
+           {
+          state?.state.tests ? (  state?.state.tests.map((item: any, index:number) => {
        return (     
 <TestItem test={item} key={index}></TestItem>
        )
-           })}
+           })) :<p>У тебя еще нету тестов</p>}
             </div>
         </div>
     )

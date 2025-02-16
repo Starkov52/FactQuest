@@ -146,6 +146,8 @@
     align-items: center;
     overflow-y: auto;
     overflow-x: hidden;
+    transform: translateY(550px);
+    transition: transform 0.5s ease;
     &__header {
         width: 50%;
 display: flex;
@@ -167,10 +169,13 @@ margin: 0 20px 20px 20px;
     }
     &__close {
         position: fixed;
-        top: 80px;
-        left: 79%;
+        top: 10px;
+        left: 95%;
     }
  }
+ .openModal.active {
+    transform: translateY(0); 
+}
  .openModal::-webkit-scrollbar {
     width: 5px;
     background-color: aquamarine;

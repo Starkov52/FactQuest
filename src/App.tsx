@@ -35,6 +35,7 @@ import Registration from './components/AutoAndRegComponent';
   | {type: 'updateView', payload: Set<string> | Set<unknown>}
   | {type: 'createData', payload: createData}
   | {type: 'autorization', payload: UserType}
+  | {type: 'decrimentPassages', payload: number}
   const initialState: UserType = {
     name: 'Name',
     password: '000000000',
@@ -49,7 +50,7 @@ import Registration from './components/AutoAndRegComponent';
     description: 'User Description',
     countOfPassedTests: 0,
     headerTheme: false,
-    money: 100 as const,
+    money: 15 as const,
     isAutorization:false,
     viewTests: new Set(),
   };
@@ -58,15 +59,20 @@ import Registration from './components/AutoAndRegComponent';
     question: string,
     button: string,
   }
+  export type Comment = {author?:string, value:string, date: Date,likes:number}
+
+
+  
  export type readyTest = [
-  tests: TextItem[] ,
+  tests: TextItem[],
   grade: number,
   passages: number,
   header: any[],
   themes: themeTest,
   key: string,
-  date: Date | number
-
+  date: Date | number,
+  comments: Comment[],
+  author:string, 
 ]
    export type ImportTypeContext = {
     state: {
@@ -97,12 +103,14 @@ export class BDFirebase extends BASE {
    users: string = 'usersQuest';
    tests: string = 'usersTests';
    
-   constructor(path: string, users: string, te1sts: string) 
+   constructor(path: string, users: string, tests: string) 
  
    
    constructor(path: string, users: string) 
+
    constructor(path:string,tests:string)
-  
+
+
   
   constructor(path: string, users?: string, tests?: string) {
     super();
@@ -162,34 +170,16 @@ export class BDFirebase extends BASE {
 function App() {
 
   const headerRef = useRef<HTMLDivElement | null>(null)
-  const [formTextH, setFormText] = useState<Text>({
-    header: {
-      title: {
-        value:'Заголовок', 
-        formated:'none',
-      } ,
-      description:{
-        value: 'Описание',
-        formated: 'none'
-      } ,
-    },
-    value: 'Введите значение',
-    formText: null,
-    questionForm: AnswerForm.text,
-    necessarily: 'disabled',
-    question: ["Добавить вариант"],
-    isActive:true,
-    key: 0,
-    index:0,
-    id: '',
-    answer: []
-});
+  
 
 const User = new BDFirebase('https://telegrambotfishcombat-default-rtdb.firebaseio.com/','usersQuests', 'userTests')
 const [state, dispatch] = useReducer(reducer,initialState)
+
 useEffect(() => {
-  User.sendData(`${User.path}${User.users}/${state.secretKey}.json`,'PATCH',state).then((response) => {console.log(response)})
+  if(state.isAutorization) {
+  User.sendData(`${User.path}${User.users}/${state.secretKey}.json`,'PATCH',state).then((response) => {console.log(response)})}
 },[state.tests])
+
   function reducer(state:UserType, action:Action): UserType | any{
   switch(action.type) {
     case 'addTest': {
@@ -218,6 +208,9 @@ useEffect(() => {
     }
     case 'autorization' : {
       return action.payload
+    }
+    case 'decrimentPassages' : {
+      return {...state,countOfPassedTests: action.payload}
     }
     default: {
       return state;
@@ -254,7 +247,7 @@ useEffect(() => {
      <Header ref={headerRef}></Header>
 
      <Routes>
-      <Route path="/createTest" element={<CreateNew state={state}  formTextH={formTextH} setFormText={setFormText}></CreateNew>}></Route>
+      <Route path="/createTest" element={<CreateNew state={state}  ></CreateNew>}></Route>
       <Route path="" element={<Main></Main>}></Route>
       <Route path='/testsAlready' element={<AlreadyTests></AlreadyTests>}></Route>
       <Route path='/userTests' element={<UserTests></UserTests>}></Route>

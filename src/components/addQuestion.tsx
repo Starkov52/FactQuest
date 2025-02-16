@@ -61,7 +61,7 @@ export type TextItem = {
   id:string,
   answer:string | string[],
   trueAnswer: string[],
-
+isTrue?: number
 }
 type ConfrimPropsItem = {
   countQuestion: TextItem,
@@ -82,7 +82,7 @@ color: string
 const AddQuestion = forwardRef<HTMLDivElement,ConfrimPropsItem>(({arrayQuestion,countQuestion, setCountQuestion, index,id,color},ref) => {
     const inputValueRef = useRef<HTMLInputElement|null>(null)
     const [isActive, setIsActive] = useState(false); 
-    const [formText, setFormText] = useState<TextItem>({
+    const [formText, setFormText] = useState<TextItem >({
       value: countQuestion!.value,
       formText: countQuestion!.formText,
       questionForm: countQuestion!.questionForm,
@@ -93,7 +93,9 @@ const AddQuestion = forwardRef<HTMLDivElement,ConfrimPropsItem>(({arrayQuestion,
    id: countQuestion.id,
    answer: [],
    trueAnswer: countQuestion.trueAnswer,
+   isTrue: countQuestion.isTrue
   });
+  const [trueFlag,setTrueFlag] = useState<boolean>(false)
     const handleChangeInput = (event:React.ChangeEvent<HTMLInputElement>): any => {
         setFormText({
             ...formText,
@@ -111,7 +113,7 @@ const AddQuestion = forwardRef<HTMLDivElement,ConfrimPropsItem>(({arrayQuestion,
       setCountQuestion((prev) => {
         const updatedQuestions = prev[0].filter((question,indexf) => indexf !== index) satisfies TextItem[];
         console.log(updatedQuestions)
-        return [updatedQuestions, prev[1], prev[2], prev[3], prev[4], prev[5],prev[6]];
+        return [updatedQuestions, prev[1], prev[2], prev[3], prev[4], prev[5],prev[6],prev[7],prev[8]];
       });
     
     };
@@ -164,10 +166,20 @@ setIsActive(Boolean(isInside))
  
   }  
   useEffect(() => {
-   
+   if(countQuestion.trueAnswer.length === 0) {
+    console.log("придурок введи правильный ответ")
+
     setFormText(
       {...formText,isActive:isActive}
     )
+    console.log("state changed")
+   } else  {
+    setFormText(
+      {...formText,isActive:isActive}
+    )
+    setTrueFlag(true)
+    console.log("state changed")
+  }
   },[isActive])   
 
     useEffect(() => {
@@ -185,7 +197,7 @@ setIsActive(Boolean(isInside))
       let updatedQuestions = [...arrayQuestion[0]];
       updatedQuestions[index] = newQuestion;
       setCountQuestion([
-       updatedQuestions, arrayQuestion[1], arrayQuestion[2], arrayQuestion[3], arrayQuestion[4], arrayQuestion[5], arrayQuestion[6]]
+       updatedQuestions, arrayQuestion[1], arrayQuestion[2], arrayQuestion[3], arrayQuestion[4], arrayQuestion[5], arrayQuestion[6],arrayQuestion[7],arrayQuestion[8]]
       );
   };
     useEffect(() => {
@@ -198,6 +210,12 @@ function isForm(form:AnswerForm, type:AnswerForm): form is AnswerForm {
 function isActivee(form:TextItem): form is TextItem {
   return form.isActive === true
 }
+function returnText(message:string) {
+  
+  return countQuestion.trueAnswer.length === 0 ? message : 'Красавчик'
+  }
+
+
     return (
         <div onClick={handleChangeActive} className="createTest">
 <div style={{
@@ -245,11 +263,11 @@ function isActivee(form:TextItem): form is TextItem {
 <div className="createTest__footerOptions">
   {formText.questionForm === AnswerForm.text ? (
     <div style={{marginRight: '2px'}} className='createTest__footerOptionsText'>
-<p >Напишите правильный ответ</p>
-<input onChange={(event) => handleChangeTrueValue(event)} style={{width: '94%',height: '19px'}}></input>
+<p >{returnText('Напишите правильный ответ')}</p>
+<input  value={countQuestion.trueAnswer} onChange={(event) => handleChangeTrueValue(event)} style={{width: '94%',height: '19px',border: countQuestion.trueAnswer.length === 0 ? '4px solid red': '4px solid green'}}></input>
 </div>
 ):  (
-  <p style={{marginRight: '10px'}}>Для выбора правильного поля кликните на него 2 раза</p>
+  <p style={{marginRight: '10px'}}>{ returnText('Для выбора правильного поля кликните на него 2 раза')}</p>
 )}
 <FaRegTrashAlt className="create__deleteQuestionBtn" onClick={() =>handleDeleteQuestionTest(id)} size={30} color='blueviolet' ></FaRegTrashAlt>
     <label>

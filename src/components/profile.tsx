@@ -7,7 +7,7 @@ import { LuPaintbrush } from "react-icons/lu";
 import { BrowserRouter as Router,Link } from 'react-router-dom';
 import image from '../images/person_11681696.png'
 import Shop from './shop';
-import {UserData} from '../App'
+import {UserData, readyTest} from '../App'
 import { ImportTypeContext } from '../App';
 import { Theme } from './shop';
 
@@ -32,7 +32,23 @@ useEffect(() => {
 useEffect(() => {
     console.log("themeObj:", themeObj);
 }, [themeObj]);
+function mediumGradeOfTests() {
+    if(Array.isArray(context?.state.tests))  {
+let medium = 0 
+const targetTest = context!.state.tests.map((item:any,index:number) => {
+    return item?.[1]
+})
 
+for(let i = 0; i < targetTest.length; i++) {
+
+    medium += targetTest[i]
+}
+const result = medium / targetTest.length
+console.log(targetTest,'WWWWWWWWWWWWWWWWWW')
+return result
+    }
+}
+mediumGradeOfTests()
     const [formatModal, setFormatModal] = useState<string>('none')
     return (
         <div className='profile'>
@@ -47,15 +63,15 @@ useEffect(() => {
                         <p className='profile__text'>Информация аккаунта</p>
                         <div className="profile__contentInfoItem">
 <SiGoogleforms></SiGoogleforms>
-<p className='profile__contentInfoItemText'>Количество созданных <Link to='/userTests'>тестов:{ context?.state?.tests?.length !== 0 ? context?.state?.tests?.length: 0}</Link></p>
+<p className='profile__contentInfoItemText'>Количество созданных <Link to='/userTests'>тестов: { context?.state?.tests?.length !== 0 ? context?.state?.tests?.length: 0}</Link></p>
                         </div>
                         <div className="profile__contentInfoItem">
 <IoCheckmarkCircleSharp></IoCheckmarkCircleSharp>
-<p className='profile__contentInfoItemText'>Количество пройденных тестов</p>
+<p className='profile__contentInfoItemText'>Количество пройденных тестов: {context?.state.countOfPassedTests}</p>
                         </div>
                         <div className="profile__contentInfoItem">
 <FaArrowUp></FaArrowUp>
-<p className='profile__contentInfoItemText'>Общий рейтинг <Link to=''>тестов</Link><span>(5/10)</span></p>
+<p className='profile__contentInfoItemText'>Общий рейтинг <Link to=''>тестов</Link><span>: {`${mediumGradeOfTests()}/5`}</span></p>
                         </div>
                         <div className="profile__contentInfoItem">
 <LuPaintbrush></LuPaintbrush>

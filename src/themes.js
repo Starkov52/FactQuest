@@ -36,7 +36,7 @@ const theme = {
 {color: two, description:'Праздничная атмосфера',price: 15},
 
 {color: five, description:'Головоломка №1',price: 15},
-{color: four, description:'Глубокое разочарование',price: 1},
+{color: four, description:'Синяя лагуна',price: 12},
 {color: six, description:'Головоломка №2',price: 15},
 {color: seven, description:'Спорт',price: 15},
 {color: three, description:'Безысходность',price: 28},

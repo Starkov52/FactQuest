@@ -36,7 +36,9 @@ countQuestion[2],
 countQuestion[3],
 newTheme,
 countQuestion[5],
-countQuestion[6]
+countQuestion[6],
+countQuestion[7],
+countQuestion[8]
 ])
 }
 

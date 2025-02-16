@@ -17,30 +17,40 @@ function TestItem({test, setViewTests}:ImportType) {
         console.log("есть контакт");
 if(setViewTests)
         setViewTests((prev) => {
-          const newSet = new Set(prev); // Копируем старый Set
+          const newSet = new Set(prev); 
           const title = test?.[3]?.[0]?.header?.title.value
           if (title) {
-            newSet.add(title); // Добавляем новый элемент
+            newSet.add(title); 
           }
-          return newSet; // Передаем новый Set (важно!)
+          return newSet; 
         });
       };
     const location = `/userTests/walkthrough/${test?.[5]}`
+    
+    function returnCountStars() {
+        const count:number = test?.[1] as number
+        const stars = []
+        for(let i = 0; i < count; i++) {
+stars.push(<TiStarFullOutline color='yellow' size={25}></TiStarFullOutline>)
+        }
+        return stars
+    }
     return (
         <div   className="alreadyTests__test">
+            <div style={{ display: 'flex', flexDirection:'column', gap: '7px'}}>
         <img  src={image} className="alreadyTests__testIcon"></img>
+        <p>{test?.[8]}</p>
+        </div>
         <div className='alreadyTests__testInfo'>
             <h1 className="alreadyTests__testTitle">{test?.[3]?.[0]?.header.title.value}</h1>
             <p className="alreadyTests__testTheme">{test?.[3]?.[0]?.header.description.value}</p>
-            <p className="alreadyTests__testAccesCount">кол-во пройденных: <span>22</span></p>
+            <p className="alreadyTests__testAccesCount">кол-во пройденных: <span>{}</span></p>
         </div>
-        <div className='alreadyTest__testAccesStars'>
-            <TiStarFullOutline color="yellow"></TiStarFullOutline>
-            <TiStarFullOutline color="yellow" ></TiStarFullOutline>
-            <TiStarFullOutline color="yellow"></TiStarFullOutline>
-            <TiStarFullOutline color="yellow"></TiStarFullOutline>
-            <TiStarFullOutline></TiStarFullOutline>
-            <span className="alreadyTest__testAccesCount">(4.5/10)</span>
+        <div className='alreadyTests__testAccesStars'>
+            {
+returnCountStars()
+            }
+            <span className="alreadyTest__testAccesCount">{Math.round(test?.[1] as number)} \ 5</span>
         </div>
         <Link onClick={handleClickTest} to ={location} className="alreadyTests__testBtnStart">
             <VscDebugStart size='30' color="blue"></VscDebugStart>
