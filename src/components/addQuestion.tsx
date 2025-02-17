@@ -238,7 +238,7 @@ function returnText(message:string) {
 </ul>
 ): null}
 <div className="createText__presentationSection">
-<div className="createText__presentationSection">
+
   {isForm(formText.questionForm,AnswerForm.radio) ? (
     <RadioAnswer
       deleteFunction={handleDeleteQuestion}
@@ -256,7 +256,6 @@ function returnText(message:string) {
   ) : null}
 </div>
 
-</div>
 
 {formText.isActive ? (
   
@@ -270,8 +269,8 @@ function returnText(message:string) {
   <p style={{marginRight: '10px'}}>{ returnText('Для выбора правильного поля кликните на него 2 раза')}</p>
 )}
 <FaRegTrashAlt className="create__deleteQuestionBtn" onClick={() =>handleDeleteQuestionTest(id)} size={30} color='blueviolet' ></FaRegTrashAlt>
-    <label>
-    <input value="disabled" onChange={handleChangeRadioBtn} type="radio"></input>
+    <label >
+    <input className='createTest__d' value="disabled" onChange={handleChangeRadioBtn} type="radio"></input>
   Сделать вопрос обязательным
     </label>
 </div>

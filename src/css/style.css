@@ -1697,13 +1697,13 @@ table {
   border-radius: 50%;
 }
 .passingTest__itemRadio:checked::after {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   position: absolute;
   left: -2px;
   top: -2px;
-  background-color: red;
-  content: url("../images/free-icon-catholicism-104529.png");
+  background-color: rgb(179, 156, 156);
+  content: url("../images/free-icon-checked-169780.png");
   border: 1px solid black;
   border-radius: 50%;
 }
@@ -1719,18 +1719,18 @@ table {
   border: 2px solid blanchedalmond;
 }
 .passingTest__itemCheckBox:checked::after {
-  width: 22px;
-  height: 22px;
-  background-color: rgb(0, 0, 0);
+  width: 20px;
+  height: 20px;
+  background-color: rgb(179, 156, 156);
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  content: url("../images/free-icon-bloody-knife-17717593 (1).png");
+  content: url("../images/free-icon-checked-169780.png");
   position: absolute;
   top: -2px;
   left: -2px;
   border-radius: 2px;
-  border: 1px solid red;
+  border: 1px solid rgb(90, 146, 52);
 }
 .passingTest__sendBtn {
   background-color: rgb(138, 89, 57);
@@ -2054,6 +2054,280 @@ table {
   margin-left: 6px;
 }
 
+@media (max-width: 420px) {
+  .header__addQuizze {
+    max-width: 40%;
+    font-size: 11px;
+    padding: 0px;
+  }
+  .header__shopTheme {
+    max-width: 40%;
+    padding: 0px;
+    padding: 0px;
+  }
+  .header__profile {
+    max-width: 40%;
+    text-align: center;
+    padding: 0px;
+  }
+  .header__friends {
+    max-width: 40%;
+  }
+  .header__quests {
+    max-width: 25%;
+    padding-right: 5px;
+  }
+  .header__text {
+    font-size: 11px;
+    text-align: center;
+  }
+  .header__profileName {
+    font-size: 11px;
+  }
+  .header__shopTitle {
+    font-size: 11px;
+    text-align: center;
+  }
+  .header__productLogo {
+    display: none;
+  }
+  .header__logoTitle {
+    font-size: 11px;
+    text-align: center;
+  }
+  .header__gutHubLink {
+    display: none;
+  }
+  .header__questsText {
+    font-size: 11px;
+  }
+  .header__nav {
+    width: 38%;
+    gap: 5px;
+    margin: 0px;
+  }
+  .header__navAlso {
+    width: 40%;
+    margin-left: 20%;
+    gap: 2px;
+  }
+  .main {
+    background-color: rgb(255, 255, 255);
+    width: 92%;
+  }
+  .main__tests {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 97%;
+    height: 30%;
+    background-color: rgb(88, 100, 96);
+    -ms-flex-item-align: center;
+        align-self: center;
+    gap: 3%;
+    border-radius: 8px;
+    overflow-x: auto;
+  }
+  .main__test {
+    width: 35%;
+    height: 160px;
+    background-color: rgb(241, 193, 193);
+    color: white;
+    margin: 5px 5px 5px 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+  .shopSection {
+    width: 100%;
+  }
+  .shopSection__info {
+    width: 88%;
+  }
+  .shop {
+    width: 98%;
+    max-width: 98%;
+    overflow: auto;
+  }
+  .shop__themesRow {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow-x: hidden;
+    gap: 40px;
+    padding: 15px 15px 15px 5px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+  }
+  .shop__header {
+    width: 40%;
+  }
+  .profile__countCoins {
+    width: 20%;
+  }
+  .openModal {
+    padding: 20px 20px 20px 20px;
+    border: 2px solid rgb(107, 89, 89);
+    position: fixed;
+    top: 8%;
+    left: 2%;
+    background-color: aliceblue;
+    width: 85%;
+    height: 850px;
+    border-radius: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-transform: translateY(550px);
+        -ms-transform: translateY(550px);
+            transform: translateY(550px);
+    -webkit-transition: -webkit-transform 0.5s ease;
+    transition: -webkit-transform 0.5s ease;
+    transition: transform 0.5s ease;
+    transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  }
+  .openModal__header {
+    width: 50%;
+  }
+  .openModal__close {
+    left: 80%;
+  }
+  .alreadyTests {
+    width: 98%;
+  }
+  .alreadyTests__checkedTestsTitle {
+    font-size: 14px;
+  }
+  .alreadyTests__checkedTestTitle {
+    font-size: 11px;
+  }
+  .alreadyTests__checkedTestIcon {
+    width: 45px;
+    height: 45px;
+  }
+  .alreadyTests__checkedTestsList {
+    max-width: 100%;
+    overflow-x: scroll;
+  }
+  .alreadyTests__checkedTestItem {
+    width: 25%;
+  }
+  .alreadyTests__headerCreateBtn {
+    width: 20%;
+  }
+  .alreadyTests__headerSearchElementIconsContainer {
+    width: 25px;
+  }
+  .alreadyTests__test {
+    width: 94%;
+    gap: 4px;
+    font-size: 13px;
+  }
+  .alreadyTests__testAccesStars {
+    top: 80px;
+    position: absolute;
+    left: 5%;
+  }
+  .alreadyTests__testIcon {
+    width: 45px;
+    height: 45px;
+  }
+  .selectElement__select {
+    width: 100%;
+  }
+  .maain {
+    width: 110%;
+  }
+  .passingTest {
+    width: 100%;
+  }
+  .passingTest__headerElement {
+    width: 100%;
+  }
+  .passingTest__footer {
+    width: 100%;
+    font-size: 12px;
+    gap: 5px;
+  }
+  .passingTest__sendBtn {
+    width: 40%;
+  }
+  .passingTest__comments {
+    width: 88%;
+  }
+  .passingTest__commentItem {
+    width: 93%;
+    font-size: 14px;
+  }
+  .grade {
+    position: fixed;
+    width: 80%;
+    left: 10%;
+  }
+  .profile {
+    width: 90%;
+  }
+  .create {
+    width: 110%;
+  }
+  .create__headerElement {
+    width: 110%;
+  }
+  .createTest__inner {
+    width: 82%;
+    font-size: 14px;
+  }
+  .createTest__inputSection {
+    width: 90%;
+    gap: 0px;
+  }
+  .createTest__presentationSection {
+    width: 10%;
+  }
+  .createTest__inputText {
+    width: 100%;
+  }
+  .createTest__footerOptions {
+    font-size: 12px;
+  }
+  .createTest__d {
+    font-size: 12px;
+  }
+  .choiseTheme {
+    width: 98%;
+    left: 1%;
+  }
+  .registration {
+    width: 89%;
+  }
+  .userTests {
+    width: 95%;
+  }
+}
 .App {
   display: -webkit-box;
   display: -ms-flexbox;

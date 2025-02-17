@@ -3,7 +3,7 @@ import { readyTest } from '../App'
 import { TextItem } from './addQuestion'
 import white from '../images/Blank.jpg'
 import { AnswerForm } from './addQuestion'
-import { useParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 import Grade from './gradeComponents'
 import PassingTestContainer from './passingTestContainer'
 import { UserType } from '../models/userClass'
@@ -13,6 +13,7 @@ import { Text } from './addQuestion'
 import CommentItem from './commentItem'
 import { Comment } from '../App'
 import {UserData} from '../App'
+import { MdContentCopy } from "react-icons/md";
 type ImportType = {
     test:readyTest ;
     handleClearAnswers: () => void,
@@ -172,7 +173,12 @@ console.log(updateObject)
 setAnswer(updateObject)
 }
 }
-
+const handleCopyTestHref = (event: React.MouseEvent<HTMLDivElement>) => {
+    const href:string = window.location.href
+    navigator.clipboard.writeText(href)
+    event.currentTarget.style.background = '#FFF'
+    event.currentTarget.style.borderRadius = '5px'
+}
 
 
 
@@ -297,6 +303,10 @@ textDecoration: item.formText === 'UNDERLINED' ? 'underline' : 'none',
            <button onClick={handleClickSend }style={{
                 background:  test?.[4]?.button !== '' ? test?.[4]?.button : ''
              }} className='passingTest__sendBtn'>Отправить</button>
+             <div onClick={(event) => handleCopyTestHref(event)} style={{display: 'flex', color: 'black', alignItems: 'center'}}>
+           <MdContentCopy size='30' color='black'></MdContentCopy>
+           <p>Скопировать</p>
+           </div>
            <p onClick={handleClearAnswers} className='passingTest__clearTest'>Очистить форму</p>
            </div>
             <h1 className='passingTest__commentsTitle'>Комментарии</h1>

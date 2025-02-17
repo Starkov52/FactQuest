@@ -1,0 +1,300 @@
+@media (max-width:420px) {
+    .header {
+      
+        &__addQuizze {
+            max-width: 40%;
+            font-size: 11px;
+            padding: 0px;
+         }
+        &__shopTheme { 
+            max-width: 40%;
+            padding: 0px;
+            padding: 0px;
+        }
+        &__profile { 
+            max-width: 40%;
+            text-align: center;
+            padding: 0px;
+        }
+        &__friends { 
+            max-width: 40%;
+        }
+        &__quests { 
+            max-width: 25%;
+            padding-right: 5px;
+        }
+        &__text { 
+            font-size: 11px;
+            text-align: center;
+        }
+        &__profileName {
+            font-size: 11px;
+      
+         }
+        &__shopTitle {
+            font-size: 11px;
+            text-align: center;
+           
+        }
+        &__productLogo { 
+            display: none;
+        }
+        &__logoTitle {
+            font-size: 11px;
+            text-align: center;
+         
+         }
+        &__gutHubLink {
+            display: none;}
+        &__questsText {
+            font-size: 11px;
+         }
+        &__nav {
+            width: 38%;
+           gap: 5px;
+           margin: 0px;
+           
+         }
+        &__navAlso {
+            width: 40%;
+            margin-left: 20%;
+            gap: 2px;
+         }
+        &__addQuizz { }
+    }
+    .main {
+        background-color: rgb(255, 255, 255);
+       width:92%;
+
+       &__tests {
+        display: flex;
+        width: 97%;
+        height: 30%;
+        background-color: rgb(88, 100, 96);
+       align-self: center;
+       gap: 3%;
+    border-radius: 8px;
+    overflow-x:auto;
+     
+    }
+    &__test {
+        width: 35%;
+        height: 160px;
+        
+        background-color: rgb(241, 193, 193);
+        color: white;
+        margin: 5px 5px 5px 5px;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 5px;
+        font-size: 12px;
+    }
+    
+}
+.shopSection {
+    width:100%;
+    
+&__info {
+    width: 88%;
+   
+}
+
+}
+.shop {
+    width: 98%;
+    max-width: 98%;
+    overflow:auto;
+&__themesRow {
+    display: flex;
+    overflow-x: hidden;
+    gap: 40px;
+    padding: 15px 15px 15px 5px;
+    justify-content: center;
+    width: 100%;
+}
+&__header {
+    width: 40%;
+}
+
+}
+.profile {
+    &__countCoins {
+        width: 20%;
+    }
+}
+.openModal {
+    padding: 20px 20px 20px 20px;
+    border: 2px solid rgb(107, 89, 89);
+    position:fixed;
+    top: 8%;
+    left: 2%;
+    background-color: aliceblue;
+    width: 85%;
+    height: 850px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transform: translateY(550px);
+    transition: transform 0.5s ease;
+    &__header {
+        width: 50%;
+
+    }
+    &__textInfo {
+       
+    }
+    &__row {
+        
+    }
+    &__close {
+       left: 80%;
+    }
+ }
+
+
+
+ .alreadyTests {
+     width: 98%;
+    &__checkedTests {
+    }
+        &__checkedTestsHeader {
+        }
+        &__checkedTestsTitle {
+            font-size: 14px;
+        }
+        &__checkedTestTitle {
+            font-size: 11px;
+        }
+        &__checkedTestIcon {
+            width: 45px;
+            height: 45px;
+        }
+        &__checkedTestsDelete {}
+        &__checkedTestsList {
+            max-width: 100%;
+            overflow-x: scroll;
+        }
+       
+        &__checkedTestItem{
+           width: 25%;
+        }
+        &__headerCreateBtn {
+           width: 20%;
+        }
+    
+       &__headerSearchElementIconsContainer {
+        width: 25px;
+       }
+       &__test {
+        width: 94%;
+        gap: 4px;
+        font-size: 13px;
+       }
+       &__testAccesStars{
+        top: 80px;
+        position: absolute;
+        left: 5%;
+          
+      }
+      &__testIcon {
+        width: 45px;
+        height: 45px;
+      }
+
+
+
+}
+.selectElement__select {
+    width: 100%;
+}
+
+.userTests {
+    &__myTests {}
+    &__title {}
+}
+
+.selectElement {
+    &__select {}
+    &__item {}
+    &__item::placeholder {}
+}
+
+
+.maain {
+    width: 110%
+}
+.passingTest {
+    width: 100%;
+    &__headerElement  {
+        width: 100%;
+    }
+    &__footer {
+        width: 100%;
+        font-size: 12px;
+        gap: 5px;
+    }
+    &__sendBtn {
+        width: 40%;
+    }
+    &__comments {
+        width: 88%;
+    }
+    &__commentItem {
+        width: 93%;
+        font-size: 14px;
+    }
+}
+.grade {
+    position: fixed;
+    width: 80%;
+    left: 10%;
+}
+.profile {
+    width:90%;
+}
+ .create {
+    width: 110%;
+    &__headerElement {
+        width: 110%;
+    }
+ }
+ .createTest {
+    &__inner {
+        width: 82%;
+        font-size: 14px;
+    }
+    &__inputSection {
+        width: 90%;
+        gap: 0px;
+    }
+    &__presentationSection {
+        width: 10%;
+    }
+    &__inputText {
+        width: 100%;
+    }
+   &__footerOptions {
+    font-size: 12px;
+   }
+   &__d {
+    font-size: 12px;
+   }
+ }
+ .choiseTheme {
+    width: 98%;
+    left: 1%;
+ }
+ .registration {
+    width: 89%;
+ }
+ .userTests {
+    width: 95%;
+ }
+ 
+}

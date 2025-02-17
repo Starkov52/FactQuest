@@ -23,6 +23,7 @@ import { Theme } from './components/shop';
 import white from './images/Blank.jpg'
 import profileHoc from './components/profileHOC';
 import Registration from './components/AutoAndRegComponent';
+
  import {BASE} from './components/dataBase'
 
  export type Action =

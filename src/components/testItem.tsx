@@ -44,7 +44,7 @@ stars.push(<TiStarFullOutline color='yellow' size={25}></TiStarFullOutline>)
         <div className='alreadyTests__testInfo'>
             <h1 className="alreadyTests__testTitle">{test?.[3]?.[0]?.header.title.value}</h1>
             <p className="alreadyTests__testTheme">{test?.[3]?.[0]?.header.description.value}</p>
-            <p className="alreadyTests__testAccesCount">кол-во пройденных: <span>{}</span></p>
+            <p className="alreadyTests__testAccesCount">кол-во пройденных: <span>{test?.[2]}</span></p>
         </div>
         <div className='alreadyTests__testAccesStars'>
             {
